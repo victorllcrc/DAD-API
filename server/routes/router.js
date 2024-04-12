@@ -7,6 +7,8 @@ const userController = require('../controller/userController');
 const lodgingController = require('../controller/lodgingController');
 const bookingController = require('../controller/bookingController');
 const authController = require('../controller/authController');
+const courseController = require('../controller/courseController');
+const registrationController = require('../controller/registrationController');
 
 /**
  *  @description Root Route
@@ -39,6 +41,14 @@ route.get('/api/users/:id', authController.verifyToken, userController.getUserBy
 route.put('/api/users/:id', authController.verifyToken, userController.updateUser);
 route.delete('/api/users/:id', authController.verifyToken, userController.deleteUser);
 route.get('/api/users/:id/lodgings', authController.verifyToken, userController.getLodgingsByUserId);
+
+// Rutas para el modelo Course
+route.post('/api/courses', courseController.createCourse);
+route.get('/api/courses', courseController.getCourses);
+
+// Rutas para el modelo Matricula
+route.post('/api/registrations', registrationController.createRegistration);
+route.get('/api/registrations', registrationController.getRegistrations);
 
 // Rutas para el modelo Lodging
 route.post('/api/lodgings', lodgingController.createLodging);
