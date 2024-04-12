@@ -24,7 +24,8 @@ exports.login = (req, res) => {
       }
   
       // Verificar la contraseña
-      if (user.password !== password) {
+      const macthPassword = User.comparePassword(password, user.password)
+      if (!macthPassword) {
         return res.status(401).send('Contraseña incorrecta');
       }
       req.session.user = user;
