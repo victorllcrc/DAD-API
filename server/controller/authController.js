@@ -81,7 +81,7 @@ exports.singIn = async (req, res) => {
     res.status(200).json({token});
     
   } catch (error) {
-    res.status(500).json({ error: error });
+    res.status(500).json({ error: 'Error al crear token', ST: process.env.SECRET_KEY });
   }
 }
 exports.verifyToken = async (req, res, next) => {
