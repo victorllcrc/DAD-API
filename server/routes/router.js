@@ -36,7 +36,7 @@ route.post('/api/signin', authController.singIn)
 
 // Rutas para el modelo User
 route.post('/api/users', authController.verifyToken, userController.createUser);
-route.get('/api/users', authController.verifyToken, userController.getUsers);
+route.get('/api/users', userController.getUsers);
 route.get('/api/users/:id', authController.verifyToken, userController.getUserById);
 route.put('/api/users/:id', authController.verifyToken, userController.updateUser);
 route.delete('/api/users/:id', authController.verifyToken, userController.deleteUser);

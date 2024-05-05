@@ -17,6 +17,6 @@ exports.createCourse = async (req, res) => {
     const course = await newCourse.save();
     res.json(course);
   } catch (error) {
-    res.status(500).json({ error: 'Error al crear un nuevo curso' });
+    res.status(400).json({ error: 'Error al crear un nuevo curso' });
   }
 };
