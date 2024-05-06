@@ -74,7 +74,7 @@ exports.singIn = async (req, res) => {
   
     if(!macthPassword) return res.status(401).json({token:null, message: "Invalid password" })
   
-    const token = jwt.sign({id: userFound._id},process.env.SECRET_KEY,{
+    const token = jwt.sign({id: userFound._id, name: `${userFound.name} ${userFound.lastname}`},process.env.SECRET_KEY,{
       expiresIn:86400 //24horas
     })
     console.log({token})
