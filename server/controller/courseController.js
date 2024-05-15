@@ -20,3 +20,11 @@ exports.createCourse = async (req, res) => {
     res.status(400).json({ error: 'Error al crear un nuevo curso' });
   }
 };
+exports.getCoursesById = async (req, res) => {
+  try {
+    const course = await Course.findById(req.params.id);
+    res.json(course);
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener el curso' });
+  }
+};

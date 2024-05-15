@@ -23,9 +23,9 @@ exports.createRegistration = async (req, res) => {
         user_id: user.id,
         course_id: course.id
     })
-    const Registration = await newRegistration.save();
-    res.json(Registration);
+    const registrationSave = await newRegistration.save();
+    res.json(registrationSave);
   } catch (error) {
-    res.status(500).json({ error: 'Error al crear una nueva matricula' });
+    res.status(500).json({ error: error });
   }
 };
