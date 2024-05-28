@@ -5,6 +5,6 @@ const registrationSchema = new mongoose.Schema({
     course_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Course' },
 })
 
-const Registration = mongoose.model('Registratio', registrationSchema);
+const Registration = mongoose.model('Registration', registrationSchema);
 
 module.exports = Registration;
