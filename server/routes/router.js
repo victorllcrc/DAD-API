@@ -50,6 +50,7 @@ route.get('/api/courses/:id', courseController.getCoursesById);
 // Rutas para el modelo Matricula
 route.post('/api/registrations', registrationController.createRegistration);
 route.get('/api/registrations', registrationController.getRegistrations);
+route.get('/api/registrations/courses/', registrationController.searchCoursesRegistrations)
 
 // Rutas para el modelo Lodging
 route.post('/api/lodgings', lodgingController.createLodging);

@@ -29,3 +29,17 @@ exports.createRegistration = async (req, res) => {
     res.status(500).json({ error: error });
   }
 };
+
+exports.searchCoursesRegistrations = async (req, res) => {
+  try {
+    const { user_id, status } = req.query;
+    const registrationData = await Registration.find({ user_id: user_id, status: status })
+        .populate('course_id')
+        .exec();
+
+    res.status(200).json(registrationData)
+
+  } catch (error) {
+    res.status(500).json( error );
+  }
+};
