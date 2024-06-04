@@ -6,7 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - encoda-node
 on:
   push:
     branches:
-      - master
+      - Deployment
   workflow_dispatch:
 
 jobs:
