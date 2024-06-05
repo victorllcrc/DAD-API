@@ -46,6 +46,7 @@ route.get('/api/users/:id/lodgings', authController.verifyToken, userController.
 route.post('/api/courses', courseController.createCourse);
 route.get('/api/courses', courseController.getCourses);
 route.get('/api/courses/:id', courseController.getCoursesById);
+route.get('/api/courses/:id/details', courseController.getCoursesByIdDetails);
 
 // Rutas para el modelo Matricula
 route.post('/api/registrations', registrationController.createRegistration);

@@ -32,7 +32,8 @@ const courseSchema = new mongoose.Schema({
     image_url: {
         type: String,
         required: true
-    }
+    },
+    module_courses: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ModuleCourse' }]
 })
 
 const Course = mongoose.model('Course', courseSchema);
