@@ -116,7 +116,7 @@ exports.singUpV2 = async (req, res) => {
   try {
     const saveUser = await newUser.save()
     console.log(saveUser)
-    const token = jwt.sign({id: saveUser._id},process.env.SECRET_KEY,{
+    const token = jwt.sign({id: saveUser._id, name: saveUser.name, email: saveUser.email},process.env.SECRET_KEY,{
       expiresIn:86400 //24horas
     })
     res.status(200).json({token});
