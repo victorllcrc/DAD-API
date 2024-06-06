@@ -10,11 +10,11 @@ const userSchema = new mongoose.Schema({
     },
     lastname: {
         type: String,
-        required: true
+        required: false
     },
     age: {
         type: Number,
-        required: true
+        required: false
     },
     email: {
         type: String,
@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
     },
     gender: {
         type: String,
-        required: true
+        required: false
     },
     password: {
         type: String,

@@ -115,11 +115,12 @@ exports.singUpV2 = async (req, res) => {
   
   try {
     const saveUser = await newUser.save()
+    console.log(saveUser)
     const token = jwt.sign({id: saveUser._id},process.env.SECRET_KEY,{
       expiresIn:86400 //24horas
     })
     res.status(200).json({token});
   } catch (error) {
-    res.status(500).json({ error: 'Error al crear un nuevo usuario' });
+    res.status(500).json({ error: error });
   }
 }
