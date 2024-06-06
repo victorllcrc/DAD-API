@@ -69,6 +69,7 @@ route.delete('/api/bookings/:id', bookingController.deleteBooking);
 
 // Ruta para iniciar sesión
 route.post('/login', authController.login);
+route.post('/singUp/v2', authController.singUpV2);
 
 // Ruta para obtener lodgings por ID
 route.get('/user/:id/lodgings', lodgingController.getLodgingsByUserId);

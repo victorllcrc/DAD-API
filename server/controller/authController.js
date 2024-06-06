@@ -98,3 +98,28 @@ exports.verifyToken = async (req, res, next) => {
     return res.status(403).json({ message: "Token not valid" });
   }
 }
+
+exports.singUpV2 = async (req, res) => {
+  const {
+    name,
+    email,
+    password
+  } = req.body
+
+  const newUser = new User({
+    name: name,
+    email: email,
+    password: await User.encryptPassword(password)
+  })
+
+  
+  try {
+    const saveUser = await newUser.save()
+    const token = jwt.sign({id: saveUser._id},process.env.SECRET_KEY,{
+      expiresIn:86400 //24horas
+    })
+    res.status(200).json({token});
+  } catch (error) {
+    res.status(500).json({ error: 'Error al crear un nuevo usuario' });
+  }
+}
